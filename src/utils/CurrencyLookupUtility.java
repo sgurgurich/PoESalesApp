@@ -14,8 +14,12 @@ public class CurrencyLookupUtility {
 	private URL url;
 
 	public CurrencyLookupUtility() {
-
-
+		connectToApi();
+	}
+	
+	public boolean connectToApi() {
+		boolean output = false;
+		
 		try {
 			url = new URL("path");
 			HttpURLConnection con = (HttpURLConnection) url.openConnection();
@@ -37,16 +41,19 @@ public class CurrencyLookupUtility {
 				JsonParser parser = new JsonParser();
 				JsonObject o = parser.parse(content.toString()).getAsJsonObject();
 				
-				System.out.println(o.toString());
+				//System.out.println(o.toString());
+				output = true;
 			}
 
 			con.disconnect();
 			
 		} catch (IOException e) {
 			System.out.println("IO exception on currency lookup");
+			
 			e.printStackTrace();
 		}
-
+		
+		return output;
 
 	}
 
