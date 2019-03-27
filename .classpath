@@ -6,5 +6,8 @@
 	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/javax.websocket-api-1.0-rc4.jar"/>
 	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/tyrus-standalone-client-1.9.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/javax.websocket-api-1.0-rc4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/tyrus-standalone-client-1.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

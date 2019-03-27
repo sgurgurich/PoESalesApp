@@ -34,10 +34,11 @@ public class SocketManager {
 	}
 	
     Session userSession = null;
-    private MessageHandler messageHandler;
+    private SocketMessageHandler msgHandler;
 
     public SocketManager() {
 		this.endpointURI = null;
+		this.msgHandler = new SocketMessageHandler();
     	
         try {
         	this.endpointURI = new URI("ws://rustnstardust.com:8080");
@@ -64,26 +65,20 @@ public class SocketManager {
 
     @OnMessage
     public void onMessage(String message) {
-        if (this.messageHandler != null) {
-            this.messageHandler.handleMessage(message);
+        if (this.msgHandler != null) {
+            this.msgHandler.handleMsg(message);
         }
     }
-
-
-    public void addMessageHandler(MessageHandler msgHandler) {
-        this.messageHandler = msgHandler;
-    }
-
 
     public void sendMessage(String message) {
         this.userSession.getAsyncRemote().sendText(message);
     }
-
-
-    public static interface MessageHandler {
-
-        public void handleMessage(String message);
+    
+    public SocketMessageHandler getMsgHandler(){
+    	return this.msgHandler;
     }
+
+
 	
 	
 	/*
