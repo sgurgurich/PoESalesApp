@@ -3,11 +3,9 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
-	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/javax.websocket-api-1.0-rc4.jar"/>
-	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/json-simple-1.1.1.jar"/>
-	<classpathentry kind="lib" path="F:/Workspace/PoESalesApp/external/tyrus-standalone-client-1.9.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/javax.websocket-api-1.0-rc4.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/json-simple-1.1.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/sgurgurich/workspace/PoESalesApp/external/tyrus-standalone-client-1.9.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

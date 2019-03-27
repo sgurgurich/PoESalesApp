@@ -12,22 +12,28 @@ public class FileParser {
 	private String fileName;
 	private File file;
 	private ClientLogDataManager logData;
+	RandomAccessFile randomAccessFile;
 
 
 	public FileParser(ClientLogDataManager logData){
 		//this.fileName = "F:/SteamLibrary/steamapps/common/Path of Exile/logs/client.txt";
-		this.fileName = "E:/Testing/testClient.txt";
+		this.fileName = "C:/Users/sgurgurich/workspace/PoESalesApp/TestLogs/Client.txt";
 		this.file = new File(fileName);
 		this.logData = logData;
+		
+		try {
+			this.randomAccessFile = new RandomAccessFile(file, "r");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void readLastLine() {
 		int readLines = 0;
 		int lines = 2; //read the last 2 lines, last line is empty
 		StringBuilder builder = new StringBuilder();
-		RandomAccessFile randomAccessFile = null;
 		try {
-			randomAccessFile = new RandomAccessFile(file, "r");
 			long fileLength = file.length() - 1;
 			// Set the pointer at the last of the file
 			randomAccessFile.seek(fileLength);
@@ -47,7 +53,7 @@ public class FileParser {
 			// Since line is read from the last so it 
 			// is in reverse so use reverse method to make it right
 			builder.reverse();
-			//System.out.println(builder.toString());
+			System.out.println(builder.toString());
 			
 			logData.updateLastLine(builder.toString());
 			
