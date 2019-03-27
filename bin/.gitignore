@@ -1,6 +1,11 @@
-/utils/
-/application/
 /UnitTests/
-/data/
+/application/
 /controllers/
+<<<<<<< Updated upstream
 /types/
+=======
+/data/
+/sockets/
+/types/
+/utils/
+>>>>>>> Stashed changes
