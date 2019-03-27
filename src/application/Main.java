@@ -11,10 +11,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-
-			
 			Parent root = FXMLLoader.load(getClass().getResource("notifierUi.fxml"));
 			primaryStage.setScene(new Scene(root));
+			primaryStage.setTitle("PoE Sales Assitant");
 			primaryStage.show();
 			
 		} catch(Exception e) {
