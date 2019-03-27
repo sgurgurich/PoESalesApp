@@ -36,4 +36,73 @@ public class FrontEndDataManager {
 		tradeStringValue = "";
 	}
 
+	
+	
+	/*
+	 * 
+	 *  Setters and Getters
+	 * 
+	 * 
+	 */
+	
+	public boolean isTradesByValueFilter() {
+		return tradesByValueFilter;
+	}
+
+	public void setTradesByValueFilter(boolean tradesByValueFilter) {
+		this.tradesByValueFilter = tradesByValueFilter;
+	}
+
+	public boolean isTradesByStringFilter() {
+		return tradesByStringFilter;
+	}
+
+	public void setTradesByStringFilter(boolean tradesByStringFilter) {
+		this.tradesByStringFilter = tradesByStringFilter;
+	}
+
+	public boolean isConsolidateTradeSpamming() {
+		return consolidateTradeSpamming;
+	}
+
+	public void setConsolidateTradeSpamming(boolean consolidateTradeSpamming) {
+		this.consolidateTradeSpamming = consolidateTradeSpamming;
+	}
+
+	public boolean isSendAllTradeRequestsToMobile() {
+		return sendAllTradeRequestsToMobile;
+	}
+
+	public void setSendAllTradeRequestsToMobile(boolean sendAllTradeRequestsToMobile) {
+		this.sendAllTradeRequestsToMobile = sendAllTradeRequestsToMobile;
+	}
+
+	public int getMinimumTradeValue() {
+		return minimumTradeValue;
+	}
+
+	public void setMinimumTradeValue(int minimumTradeValue) {
+		this.minimumTradeValue = minimumTradeValue;
+	}
+
+	public CurrencyEnum getSelectedFilterCurrency() {
+		return selectedFilterCurrency;
+	}
+
+	public void setSelectedFilterCurrency(CurrencyEnum selectedFilterCurrency) {
+		this.selectedFilterCurrency = selectedFilterCurrency;
+	}
+
+	public String getTradeStringValue() {
+		return tradeStringValue;
+	}
+
+	public void setTradeStringValue(String tradeStringValue) {
+		this.tradeStringValue = tradeStringValue;
+	}
+
+	
+	 
+	 
+
 }
