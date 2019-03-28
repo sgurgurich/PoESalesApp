@@ -59,6 +59,7 @@ public class ClientLogDataManager {
 		System.out.println(itemPrice);
 		
 		dataPacker.packAndSendSalesData(buyerName, itemName, itemPrice);
+		
 	}
 	
 }

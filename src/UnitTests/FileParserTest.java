@@ -1,5 +1,7 @@
 package UnitTests;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Test;
 
 import data.ClientLogDataManager;
@@ -10,10 +12,19 @@ public class FileParserTest {
 	@Test
 	public void test() {
 		
-		ClientLogDataManager dm = new ClientLogDataManager();
-		FileParser fp = new FileParser(dm);
+		//ClientLogDataManager dm = new ClientLogDataManager();
+		FileParser fp = new FileParser();
 		
-		fp.readLastLine();
+	    while (true) {
+	    	fp.readLastLine();
+	    	
+			try {
+				TimeUnit.SECONDS.sleep(1);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	    }
 		
 		
 	}

@@ -15,11 +15,11 @@ public class FileParser {
 	RandomAccessFile randomAccessFile;
 
 
-	public FileParser(ClientLogDataManager logData){
+	public FileParser(){
 		//this.fileName = "F:/SteamLibrary/steamapps/common/Path of Exile/logs/client.txt";
 		this.fileName = "C:/Users/sgurgurich/workspace/PoESalesApp/TestLogs/Client.txt";
 		this.file = new File(fileName);
-		this.logData = logData;
+		this.logData = new ClientLogDataManager();
 		
 		try {
 			this.randomAccessFile = new RandomAccessFile(file, "r");
@@ -53,7 +53,7 @@ public class FileParser {
 			// Since line is read from the last so it 
 			// is in reverse so use reverse method to make it right
 			builder.reverse();
-			System.out.println(builder.toString());
+			//System.out.println(builder.toString());
 			
 			logData.updateLastLine(builder.toString());
 			
@@ -65,15 +65,6 @@ public class FileParser {
 		catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally{
-			if(randomAccessFile != null){
-				try {
-					randomAccessFile.close();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
 		}
 	}
 }
