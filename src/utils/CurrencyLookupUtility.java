@@ -79,6 +79,7 @@ public class CurrencyLookupUtility {
 		JsonObject jsonObj = null;
 		try {
 			jsonObj = parser.parse(FileUtils.fileToStringUtf8(backupJsonPath)).getAsJsonObject();
+			//System.out.println(jsonObj);
 		} catch (JsonSyntaxException | IOException e) {
 			e.printStackTrace();
 		}

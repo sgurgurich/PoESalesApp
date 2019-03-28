@@ -42,15 +42,15 @@ public class CurrencyDataManager {
 			Double chaosEquivalent = line.get("chaosEquivalent").getAsDouble();
 			System.out.println(currencyTypeName + ": " + chaosEquivalent);
 			
-//			if(CurrencyEnum.fromString(currencyTypeName) != CurrencyEnum.INVALID_CURRENCY) {
-//				currencyMap.put(CurrencyEnum.fromString(currencyTypeName), chaosEquivalent);
-//			}
-//			
-//			for (Map.Entry<CurrencyEnum, Double> entry : currencyMap.entrySet()) {
-//				System.out.println(entry.getKey() + ":" + entry.getValue());
-//			}
+			if(CurrencyEnum.fromString(currencyTypeName) != CurrencyEnum.INVALID_CURRENCY) {
+				currencyMap.put(CurrencyEnum.fromString(currencyTypeName), chaosEquivalent);
+				
+			}	
 		}
 		
+		for (Map.Entry<CurrencyEnum, Double> entry : currencyMap.entrySet()) {
+			System.out.println(entry.getKey() + ":" + entry.getValue());
+		}
 		
 	}
 
