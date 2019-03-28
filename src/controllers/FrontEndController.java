@@ -31,9 +31,6 @@ public class FrontEndController{
 	private CheckBox tradeSpamFilterCheckbox;
 	
 	@FXML
-	private Button applyFiltersButton;
-	
-	@FXML
 	private Button resetToDefaultsButton;
 	
 	@FXML
@@ -82,11 +79,6 @@ public class FrontEndController{
 	@FXML
     protected void handleRemoveRequestButtonAction(ActionEvent event) {
 		 
-	}
-	
-	@FXML
-    protected void handleApplyFiltersButtonAction(ActionEvent event) {
-		
 	}
 	
 	@FXML
