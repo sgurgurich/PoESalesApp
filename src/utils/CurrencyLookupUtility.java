@@ -1,6 +1,7 @@
 package utils;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -8,18 +9,16 @@ import java.net.URL;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 
 public class CurrencyLookupUtility {
 
 	private URL url;
-	private JsonObject jsonObj;	
+	private JsonObject apiJsonObj;	
 	private String apiPath = "https://poe.ninja/api/data/currencyoverview?league=Synthesis&type=Currency";
+	private String backupJsonPath = "TestLogs/currencyoverview.json";
 	private String userAgentString =  "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10.4; en-US; rv:1.9.2.2) Gecko/20100316 Firefox/3.6.2";
 
-	public CurrencyLookupUtility() {
-		connectToApi();
-	}
-	
 	public boolean connectToApi() {
 		boolean output = false;
 		
@@ -42,7 +41,7 @@ public class CurrencyLookupUtility {
 			if(verifyStatusGood(status)) {
 				System.out.println("Content Valid Response");
 				JsonParser parser = new JsonParser();
-				jsonObj = parser.parse(content.toString()).getAsJsonObject();
+				apiJsonObj = parser.parse(content.toString()).getAsJsonObject();
 				
 				//System.out.println(o.toString());
 				output = true;
@@ -59,8 +58,8 @@ public class CurrencyLookupUtility {
 		return output;
 	}
 	
-	public JsonObject getJsonObj() {
-		return jsonObj;
+	public JsonObject getApiJsonObj() {
+		return apiJsonObj;
 	}
 	
 	public void setApiPath(String apiPath) {
@@ -73,6 +72,17 @@ public class CurrencyLookupUtility {
 		}
 		
 		return false;		
+	}
+	
+	public JsonObject getDefaultCurrencyValuesJson() {		
+		JsonParser parser = new JsonParser();
+		JsonObject jsonObj = null;
+		try {
+			jsonObj = parser.parse(FileUtils.fileToStringUtf8(backupJsonPath)).getAsJsonObject();
+		} catch (JsonSyntaxException | IOException e) {
+			e.printStackTrace();
+		}
+		return jsonObj;
 	}
 
 }

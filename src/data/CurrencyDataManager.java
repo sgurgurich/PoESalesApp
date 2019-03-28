@@ -3,6 +3,10 @@ package data;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+
 import types.enums.CurrencyEnum;
 import utils.CurrencyLookupUtility;
 
@@ -12,8 +16,9 @@ public class CurrencyDataManager {
 	private CurrencyLookupUtility lookupUtil;
 	
 	public CurrencyDataManager(){
-		this.currencyMap = new HashMap<CurrencyEnum, Double>();
 		this.lookupUtil = new CurrencyLookupUtility();
+		this.currencyMap = new HashMap<CurrencyEnum, Double>();
+		loadCurrencyData();
 	}
 	
 	public Map<CurrencyEnum, Double> getCurrencyData(){
@@ -21,12 +26,31 @@ public class CurrencyDataManager {
 	}
 	
 	private void loadCurrencyData() {
+		
+		JsonObject json;
 		if (lookupUtil.connectToApi()) {
-			//TODO: populate map based on currency data
+			json = lookupUtil.getApiJsonObj();
+		} else {
+			json = lookupUtil.getDefaultCurrencyValuesJson();
 		}
-		else {
-			//TODO: create a default list of estimated values and log
+		
+		JsonArray lines = json.getAsJsonArray("lines");
+		
+		for (JsonElement e : lines) {
+			JsonObject line = e.getAsJsonObject();
+			String currencyTypeName = line.get("currencyTypeName").getAsString();
+			Double chaosEquivalent = line.get("chaosEquivalent").getAsDouble();
+			System.out.println(currencyTypeName + ": " + chaosEquivalent);
+			
+//			if(CurrencyEnum.fromString(currencyTypeName) != CurrencyEnum.INVALID_CURRENCY) {
+//				currencyMap.put(CurrencyEnum.fromString(currencyTypeName), chaosEquivalent);
+//			}
+//			
+//			for (Map.Entry<CurrencyEnum, Double> entry : currencyMap.entrySet()) {
+//				System.out.println(entry.getKey() + ":" + entry.getValue());
+//			}
 		}
+		
 		
 	}
 

@@ -40,12 +40,5 @@ public class CurrencyLookupTests {
 		CurrencyLookupUtility clu = new CurrencyLookupUtility();		
 		assertFalse(clu.verifyStatusGood(403));		
 	}
-	
-
-	@Test
-	public void jsonObjGet() {
-		CurrencyLookupUtility clu = new CurrencyLookupUtility();	
-		assertNotNull(clu.getJsonObj());
-	}
 
 }
