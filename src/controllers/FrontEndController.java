@@ -54,6 +54,17 @@ public class FrontEndController{
 	
 	public void initializeData() {
 		populateCurrencyOptions();
+		
+		
+		 TreeItem<String> root = new TreeItem<String>("Root Node");
+		 root.setExpanded(true);
+		 root.getChildren().addAll(
+		     new TreeItem<String>("Item 1"),
+		     new TreeItem<String>("Item 2"),
+		     new TreeItem<String>("Item 3")
+		 );
+		 tradeRequestsTreeView = new TreeView<String>(root);
+		 //tradeRequestsTreeView.refresh();
 	}
 	
 	@FXML
