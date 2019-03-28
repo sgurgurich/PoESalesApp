@@ -13,6 +13,7 @@ import com.google.gson.JsonSyntaxException;
 
 public class CurrencyLookupUtility {
 
+	private boolean debug = false;
 	private URL url;
 	private JsonObject apiJsonObj;	
 	private String apiPath = "https://poe.ninja/api/data/currencyoverview?league=Synthesis&type=Currency";
@@ -39,11 +40,16 @@ public class CurrencyLookupUtility {
 			in.close();
 			
 			if(verifyStatusGood(status)) {
-				System.out.println("Content Valid Response");
+				if (debug) {
+					System.out.println("Content Valid Response");
+				}
+				
 				JsonParser parser = new JsonParser();
 				apiJsonObj = parser.parse(content.toString()).getAsJsonObject();
+				if (debug) {
+					System.out.println(apiJsonObj.toString());
+				}
 				
-				//System.out.println(o.toString());
 				output = true;
 			}
 
@@ -84,6 +90,14 @@ public class CurrencyLookupUtility {
 			e.printStackTrace();
 		}
 		return jsonObj;
+	}
+
+	public boolean isDebug() {
+		return debug;
+	}
+
+	public void setDebug(boolean debug) {
+		this.debug = debug;
 	}
 
 }
