@@ -57,34 +57,54 @@ public class FrontEndController{
 	}
 	
 	@FXML
-    protected void handleSendTradesToMobileCBAction(ActionEvent event) {
-		 frontEndDataMgr.setSendAllTradeRequestsToMobile(sendTradesToMobileCheckbox.isSelected());
+	protected void handleCheckboxActions(ActionEvent event) {
+		if (event.getSource().equals(sendTradesToMobileCheckbox)) {
+			frontEndDataMgr.setSendAllTradeRequestsToMobile(sendTradesToMobileCheckbox.isSelected());
+		}
+		else if (event.getSource().equals(priceFilterCheckbox)) {
+			frontEndDataMgr.setTradesByValueFilter(priceFilterCheckbox.isSelected());
+		}
+		else if (event.getSource().equals(strFilterCheckbox)) {
+			frontEndDataMgr.setTradesByStringFilter(strFilterCheckbox.isSelected());
+		}
+		else if (event.getSource().equals(tradeSpamFilterCheckbox)) {
+			frontEndDataMgr.setConsolidateTradeSpamming(tradeSpamFilterCheckbox.isSelected());
+		}
+		else {
+			// do nothing
+		}
+		
 	}
 	
 	@FXML
-    protected void handlePriceFilterCBAction(ActionEvent event) {
-		 frontEndDataMgr.setTradesByValueFilter(priceFilterCheckbox.isSelected());
+    protected void handleButtonActions(ActionEvent event) {
+		 if (event.getSource().equals(resetToDefaultsButton)) {
+			 frontEndDataMgr.resetToDefaults();
+		 }
+		 else if (event.getSource().equals(removeRequestButton)) {
+			 //TODO: add remove request feature
+		 }
+		 else {
+			 // do nothing
+		 }
 	}
 	
 	@FXML
-    protected void handleStrFilterCBAction(ActionEvent event) {
-		 frontEndDataMgr.setTradesByStringFilter(strFilterCheckbox.isSelected());
+	protected void handleTextFieldActions(ActionEvent event) {
+		 if (event.getSource().equals(filterPriceValueText)) {
+			 //TODO: add filter price text functionality
+		 }
+		 else if (event.getSource().equals(filterStringText)) {
+			//TODO: add filter String text functionality
+		 }
+		 else {
+			 // do nothing
+		 }
 	}
 	
 	@FXML
-    protected void handleTradeSpamFilterCBAction(ActionEvent event) {
-		 frontEndDataMgr.setConsolidateTradeSpamming(tradeSpamFilterCheckbox.isSelected());
-	}
-	
-	@FXML
-    protected void handleRemoveRequestButtonAction(ActionEvent event) {
-		 
-	}
-	
-	@FXML
-    protected void handleResetToDefaultsButtonAction(ActionEvent event) {
-		//TODO: Add alert with ok and cancel options
-		frontEndDataMgr.resetToDefaults();
+	protected void handleComboBoxActions(ActionEvent event) {
+		//TODO: Handle combo box selection
 	}
 	
 	private void populateCurrencyOptions() {
