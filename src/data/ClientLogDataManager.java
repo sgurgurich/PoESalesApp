@@ -33,7 +33,7 @@ public class ClientLogDataManager {
 			lastLine = line;
 			System.out.println("Last line changed to: " + lastLine);
 			
-			if (lastLine.contains("Hi, I would like to buy")){
+			if (lastLine.contains("Hi, I would like to buy") && lastLine.contains("@From ")){
 				parseSaleInfo(lastLine);
 			}
 		}

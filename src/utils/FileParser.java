@@ -17,7 +17,7 @@ public class FileParser {
 
 	public FileParser(){
 		//this.fileName = "F:/SteamLibrary/steamapps/common/Path of Exile/logs/client.txt";
-		this.fileName = "C:/Users/sgurgurich/workspace/PoESalesApp/TestLogs/Client.txt";
+		this.fileName = "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile/logs/client.txt";
 		this.file = new File(fileName);
 		this.logData = new ClientLogDataManager();
 		
@@ -28,7 +28,8 @@ public class FileParser {
 			e.printStackTrace();
 		}
 	}
-
+	
+	private String lastLine = "";
 	public void readLastLine() {
 		int readLines = 0;
 		int lines = 2; //read the last 2 lines, last line is empty
@@ -53,9 +54,14 @@ public class FileParser {
 			// Since line is read from the last so it 
 			// is in reverse so use reverse method to make it right
 			builder.reverse();
+			
+			if (!builder.toString().equals(lastLine)) {
+				logData.updateLastLine(builder.toString());
+			} 
+			lastLine = builder.toString();
 			//System.out.println(builder.toString());
 			
-			logData.updateLastLine(builder.toString());
+			
 			
 			
 		} catch (FileNotFoundException e) {
