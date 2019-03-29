@@ -17,5 +17,8 @@ public class FileUtils {
 		byte[] encoded = Files.readAllBytes(Paths.get(path));
 		return new String(encoded, StandardCharsets.UTF_8);
 	}
-
+	
+	public static String getUserHomeDirectoryPath() {
+		return System.getProperty("user.home");
+	}
 }
