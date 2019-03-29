@@ -16,8 +16,8 @@ public class FileParser {
 
 
 	public FileParser(){
-		//this.fileName = "F:/SteamLibrary/steamapps/common/Path of Exile/logs/client.txt";
-		this.fileName = "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile/logs/client.txt";
+		this.fileName = "F:/SteamLibrary/steamapps/common/Path of Exile/logs/Client.txt";
+		//this.fileName = "C:/Program Files (x86)/Steam/steamapps/common/Path of Exile/logs/client.txt";
 		this.file = new File(fileName);
 		this.logData = new ClientLogDataManager();
 		

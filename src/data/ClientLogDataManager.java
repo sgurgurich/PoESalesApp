@@ -25,10 +25,11 @@ public class ClientLogDataManager {
 		// used to set the first iteration
 		if (isFirstRead) {
 			lastLine = line;
+			prevVersion = lastLine;
 			isFirstRead = false;
 		}
 		
-		if (!(line.equals(prevVersion))) {
+		else if (!(line.equals(prevVersion))) {
 			prevVersion = lastLine;
 			lastLine = line;
 			System.out.println("Last line changed to: " + lastLine);
