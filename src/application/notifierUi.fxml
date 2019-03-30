@@ -11,11 +11,12 @@
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.191" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontEndController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="547.0" prefWidth="791.0" xmlns="http://javafx.com/javafx/8.0.131" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.FrontEndController">
    <children>
       <TreeView fx:id="tradeRequestsTreeView" layoutX="475.0" layoutY="45.0" prefHeight="457.0" prefWidth="302.0" />
       <Label layoutX="475.0" layoutY="28.0" text="Latest Trade Requests" />
-      <Button fx:id="removeRequestButton" layoutX="574.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleButtonActions" text="Remove Request" />
+      <Button fx:id="removeRequestButton" layoutX="513.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleButtonActions" text="Remove Request" />
+      <Button fx:id="clearAllTradeRequestsButton" layoutX="635.0" layoutY="508.0" mnemonicParsing="false" onAction="#handleButtonActions" text="Clear All Requests" />
       <MenuBar prefHeight="25.0" prefWidth="791.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
@@ -42,11 +43,12 @@
       <Label layoutX="13.0" layoutY="28.0" prefHeight="17.0" prefWidth="97.0" text="Trade Filters" />
       <CheckBox fx:id="priceFilterCheckbox" layoutX="14.0" layoutY="53.0" mnemonicParsing="false" onAction="#handleCheckboxActions" text="Only show trades &gt;= value" />
       <Label layoutX="14.0" layoutY="79.0" text="Filter Value" />
-      <TextField fx:id="filterPriceValueText" layoutX="80.0" layoutY="75.0" prefHeight="25.0" prefWidth="44.0" onAction="#handleTextFieldActions" />
-      <ComboBox fx:id="currencyFilterSelection" layoutX="129.0" layoutY="75.0" prefHeight="25.0" prefWidth="325.0" onAction="#handleComboBoxActions" />
+      <TextField fx:id="filterPriceValueText" layoutX="80.0" layoutY="75.0" onAction="#handleTextFieldActions" prefHeight="25.0" prefWidth="44.0" />
+      <ComboBox fx:id="currencyFilterSelection" layoutX="129.0" layoutY="75.0" onAction="#handleComboBoxActions" prefHeight="25.0" prefWidth="325.0" />
       <CheckBox fx:id="strFilterCheckbox" layoutX="14.0" layoutY="118.0" mnemonicParsing="false" onAction="#handleCheckboxActions" text="Only show trades containing:" />
       <Label layoutX="13.0" layoutY="142.0" text="Filter String" />
-      <TextField fx:id="filterStringText" layoutX="80.0" layoutY="138.0" prefHeight="25.0" prefWidth="373.0" onAction="#handleTextFieldActions" />
+      <TextField fx:id="filterStringText" layoutX="80.0" layoutY="138.0" onAction="#handleTextFieldActions" prefHeight="25.0" prefWidth="373.0" />
       <CheckBox fx:id="tradeSpamFilterCheckbox" layoutX="14.0" layoutY="180.0" mnemonicParsing="false" onAction="#handleCheckboxActions" selected="true" text="Consolidate Trade Spamming" />
+      
    </children>
 </Pane>

@@ -38,6 +38,9 @@ public class FrontEndController implements ObserverIF{
 
 	@FXML
 	private Button removeRequestButton;
+	
+	@FXML
+	private Button clearAllTradeRequestsButton;
 
 	@FXML
 	private TextField filterPriceValueText;
@@ -108,7 +111,9 @@ public class FrontEndController implements ObserverIF{
 		else if (event.getSource().equals(removeRequestButton)) {
 			mainRoot.getChildren().remove(tradeRequestsTreeView.getSelectionModel().getSelectedItem());	
 		}
-		else {
+		else if (event.getSource().equals(clearAllTradeRequestsButton)) { 
+			mainRoot.getChildren().clear();			
+		} else {
 			// do nothing
 		}
 	}
